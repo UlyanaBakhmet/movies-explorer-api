@@ -46,8 +46,7 @@ module.exports.saveMovie = (req, res, next) => {
 };
 
 module.exports.getMovies = (req, res, next) => {
-  Movie
-    .find({ owner: req.user._id })
+  Movie.find({ owner: req.user._id })
     .then((movies) => res.send(movies))
     .catch((err) => {
       next(err);

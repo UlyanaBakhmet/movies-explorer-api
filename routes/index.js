@@ -18,8 +18,9 @@ router.post('/signup', validateSignUp, createUser);
 
 router.use(auth); // ниже все будут защищены авторизацией
 
-router.use('/', usersRouter);
+router.use('/', usersRouter); // запускаем. передали ф своим обработчикам запроса
 router.use('/', moviesRouter);
+// неизвестного маршрута
 router.use('*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
