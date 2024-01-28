@@ -13,7 +13,33 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 const app = express();
 
-app.use(cors({ origin: ['http://localhost:3001', 'https://bakhmet-movies.nomoredomainsmonster.ru', 'http://bakhmet-movies.nomoredomainsmonster.rumovies.irina.nomoredomainsicu.ru', 'https://api.bakhmet-movies.nomoredomainsmonster.ru', 'https://api.bakhmet-movies.nomoredomainsmonster.ru'], credentials: true }));
+// app.use(cors({ origin: [
+//   'http://localhost:3001',
+//   'https://bakhmet-movies.nomoredomainsmonster.ru',
+//   'http://bakhmet-movies.nomoredomainsmonster.rumovies.irina.nomoredomainsicu.ru',
+//   'https://api.bakhmet-movies.nomoredomainsmonster.ru',
+//   'https://api.bakhmet-movies.nomoredomainsmonster.ru'
+// ]
+// credentials: true }));
+
+const options = {
+  origin: [
+    'http://localhost:3001',
+    'https://api.nomoreparties.co/beatfilm-movies',
+    'http://api.nomoreparties.co/beatfilm-movies',
+    'https://bakhmet-movies.nomoredomainsmonster.ru',
+    'http://bakhmet-movies.nomoredomainsmonster.rumovies.irina.nomoredomainsicu.ru',
+    'https://api.bakhmet-movies.nomoredomainsmonster.ru',
+    'https://api.bakhmet-movies.nomoredomainsmonster.ru',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
+  credentials: true,
+};
+
+app.use('*', cors(options));
 
 app.use(helmet());
 
