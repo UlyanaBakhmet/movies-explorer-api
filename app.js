@@ -30,7 +30,7 @@ const options = {
     'https://bakhmet-movies.nomoredomainsmonster.ru',
     'http://bakhmet-movies.nomoredomainsmonster.rumovies.irina.nomoredomainsicu.ru',
     'https://api.bakhmet-movies.nomoredomainsmonster.ru',
-    'https://api.bakhmet-movies.nomoredomainsmonster.ru',
+    'http://api.bakhmet-movies.nomoredomainsmonster.ru',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
